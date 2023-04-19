@@ -8,20 +8,20 @@ from model_zoo.model_zoo import ModelRouter
 class ImageCache:
     data = {}
 
-def ins_get_image(name, to_rgb=False, use_cache=True):
+def ins_get_image(image_file, to_rgb=False, use_cache=True):
     # key = (name, to_rgb)
     # if key in ImageCache.data:
     #     return ImageCache.data[key]
-    images_dir = "/content"
-    ext_names = ['.jpg', '.png', '.jpeg']
-    image_file = None
-    for ext_name in ext_names:
-        _image_file = osp.join(images_dir, "%s%s"%(name, ext_name))
-        print(_image_file)
-        if osp.exists(_image_file):
-            image_file = _image_file
-            break
-    assert image_file is not None, '%s not found'%name
+    # images_dir = "/content"
+    # ext_names = ['.jpg', '.png', '.jpeg']
+    # image_file = None
+    # for ext_name in ext_names:
+    #     _image_file = osp.join(images_dir, "%s%s"%(name, ext_name))
+    #     print(_image_file)
+    #     if osp.exists(_image_file):
+    #         image_file = _image_file
+    #         break
+    # assert image_file is not None, '%s not found'%name
     img = cv2.imread(image_file)
     if to_rgb:
         img = img[:,:,::-1]
@@ -36,7 +36,6 @@ def get_default_provider_options():
     return None
 
 def get_any_model(model_file):
-  model_dir="/content"
   # model_file=find_onnx_file(model_dir)
   router = ModelRouter(model_file)
   providers = get_default_providers()

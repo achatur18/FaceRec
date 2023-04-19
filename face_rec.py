@@ -19,8 +19,8 @@ class FaceRec:
     arcface_session = PickableInferenceSession(arcface_onnx_file, **kwargs)
     arcface=ArcFaceONNX(model_file=arcface_onnx_file, session=arcface_session)
 
-    def get_embeddings(self, image_name):
-        img = ins_get_image(image_name)
+    def get_embeddings(self, image_loc):
+        img = ins_get_image(image_loc)
         input_shape=img.shape
         # input_shape=(2571, 2000, 3)
         bboxes, kpss = self.retinaface.detect(img,input_size=( 640, 640), max_num=0,metric='default')
