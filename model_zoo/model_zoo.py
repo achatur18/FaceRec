@@ -9,7 +9,7 @@ from .retinaface import *
 from .landmark import *
 # from .attribute import Attribute
 from .inswapper import INSwapper
-from ..utils import download_onnx
+from utils import download_onnx
 
 __all__ = ['get_model']
 

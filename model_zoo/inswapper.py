@@ -4,7 +4,7 @@ import onnxruntime
 import cv2
 import onnx
 from onnx import numpy_helper
-from ..utils import face_align
+from utils import face_align
 
 
 
