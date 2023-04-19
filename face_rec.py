@@ -3,6 +3,7 @@ from model_zoo.model_zoo import PickableInferenceSession
 
 
 class FaceRec:
+    model_loc = "/content/"
 
     provider_options = get_default_provider_options()
 
@@ -10,11 +11,11 @@ class FaceRec:
         "provider_options" : get_default_provider_options()
     }
 
-    retinaface_onnx_file="/content/det_10g.onnx"
+    retinaface_onnx_file=model_loc+"det_10g.onnx"
     session = PickableInferenceSession(retinaface_onnx_file, **kwargs)
-    retinaface=get_any_model("/content/det_10g.onnx")
+    retinaface=get_any_model(model_loc+"det_10g.onnx")
 
-    arcface_onnx_file="/content/w600k_r50.onnx"
+    arcface_onnx_file=model_loc+"w600k_r50.onnx"
     arcface_session = PickableInferenceSession(arcface_onnx_file, **kwargs)
     arcface=ArcFaceONNX(model_file=arcface_onnx_file, session=arcface_session)
 
