@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Organization  : awone.ai
-# @Author        : Jia Guo
-# @Time          : 2021-09-18
-# @Function      : 
 
 from __future__ import division
 import datetime

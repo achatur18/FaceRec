@@ -1,8 +1,3 @@
-# -*- coding: utf-8 -*-
-# @Organization  : awone.ai
-# @Author        : Jia Guo
-# @Time          : 2021-05-04
-# @Function      : 
 
 from __future__ import division
 import numpy as np
