@@ -9,24 +9,9 @@ class ImageCache:
     data = {}
 
 def ins_get_image(image_file, to_rgb=False, use_cache=True):
-    # key = (name, to_rgb)
-    # if key in ImageCache.data:
-    #     return ImageCache.data[key]
-    # images_dir = "/content"
-    # ext_names = ['.jpg', '.png', '.jpeg']
-    # image_file = None
-    # for ext_name in ext_names:
-    #     _image_file = osp.join(images_dir, "%s%s"%(name, ext_name))
-    #     print(_image_file)
-    #     if osp.exists(_image_file):
-    #         image_file = _image_file
-    #         break
-    # assert image_file is not None, '%s not found'%name
     img = cv2.imread(image_file)
     if to_rgb:
         img = img[:,:,::-1]
-    # if use_cache:
-    #     ImageCache.data[key] = img
     return img
 
 def get_default_providers():
@@ -36,7 +21,6 @@ def get_default_provider_options():
     return None
 
 def get_any_model(model_file):
-  # model_file=find_onnx_file(model_dir)
   router = ModelRouter(model_file)
   providers = get_default_providers()
   provider_options = get_default_provider_options()
@@ -46,7 +30,6 @@ def get_any_model(model_file):
 
 import numpy as np
 from numpy.linalg import norm as l2norm
-#from easydict import EasyDict
 
 class Face(dict):
 
@@ -57,10 +40,6 @@ class Face(dict):
             d.update(**kwargs)
         for k, v in d.items():
             setattr(self, k, v)
-        # Class attributes
-        #for k in self.__class__.__dict__.keys():
-        #    if not (k.startswith('__') and k.endswith('__')) and not k in ('update', 'pop'):
-        #        setattr(self, k, getattr(self, k))
 
     def __setattr__(self, name, value):
         if isinstance(value, (list, tuple)):

@@ -3,7 +3,7 @@ from model_zoo.model_zoo import PickableInferenceSession
 
 
 class FaceRec:
-    model_loc = "/content/"
+    model_loc = "/models/awone_face/"
 
     provider_options = get_default_provider_options()
 
